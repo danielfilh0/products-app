@@ -5,6 +5,7 @@ module.exports = {
   collectCoverageFrom: [
     'src/**/*.ts(x)?',
     '!src/styles/**',
+    '!src/utils/**',
     '!src/app/**', // should be tested in e2e
     '!src/lib/registry.tsx',
     '!src/types/**',
@@ -16,6 +17,7 @@ module.exports = {
     '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }]
   },
   moduleNameMapper: {
-    '\\.(css|less|scss|sass)$': 'identity-obj-proxy'
+    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+    '^@/(.*)$': '<rootDir>/src/$1'
   }
 }
