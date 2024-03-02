@@ -26,7 +26,7 @@ export function ProductItem({
     : price
 
   return (
-    <div className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white">
+    <li className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white">
       <div className="aspect-h-4 aspect-w-3 bg-gray-200 sm:aspect-none group-hover:opacity-75 sm:h-96">
         <Image
           src={thumbnail}
@@ -36,6 +36,7 @@ export function ProductItem({
           height={264}
         />
       </div>
+
       <div className="flex flex-1 flex-col space-y-2 p-4">
         <h3 className="text-sm font-medium text-gray-900">
           <Link href={`/product/${id}`}>
@@ -58,6 +59,6 @@ export function ProductItem({
           </div>
         </div>
       </div>
-    </div>
+    </li>
   )
 }
