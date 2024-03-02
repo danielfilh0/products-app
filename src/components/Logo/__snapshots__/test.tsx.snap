@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Logo /> should render 1`] = `
+<img
+  alt="Products App Logo"
+  class="w-auto h-8"
+  data-nimg="1"
+  decoding="async"
+  height="40"
+  loading="lazy"
+  src="/_next/image?url=https%3A%2F%2Ftailwindui.com%2Fimg%2Flogos%2Fmark.svg%3Fcolor%3Dindigo%26shade%3D600&w=96&q=75"
+  srcset="/_next/image?url=https%3A%2F%2Ftailwindui.com%2Fimg%2Flogos%2Fmark.svg%3Fcolor%3Dindigo%26shade%3D600&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Ftailwindui.com%2Fimg%2Flogos%2Fmark.svg%3Fcolor%3Dindigo%26shade%3D600&w=96&q=75 2x"
+  style="color: transparent;"
+  width="47"
+/>
+`;
