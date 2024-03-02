@@ -3,7 +3,10 @@ import path from 'path'
 
 const config: StorybookConfig = {
   staticDirs: ['../public'],
-  stories: ['../src/components/**/stories.tsx'],
+  stories: [
+    '../src/components/**/stories.tsx',
+    '../src/layouts/**/stories.tsx'
+  ],
   addons: ['@storybook/addon-essentials'],
   framework: {
     name: '@storybook/nextjs',
