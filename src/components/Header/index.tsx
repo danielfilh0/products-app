@@ -3,6 +3,7 @@ import { ArrowRightIcon } from '@radix-ui/react-icons'
 
 import { Logo } from '../Logo'
 import { Avatar } from '../Avatar'
+import { Container } from '../Container'
 
 export type Header = {
   user?: {
@@ -20,20 +21,22 @@ export type Header = {
 export function Header({ user, menu }: Header) {
   return (
     <header className="w-full shadow fixed z-10">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
-        <Link href="/">
-          <Logo />
-        </Link>
-
-        {user ? (
-          <Avatar image={user.photo} username={user.name} menu={menu} />
-        ) : (
-          <Link href="/login" className="flex items-center gap-2">
-            Log in
-            <ArrowRightIcon />
+      <Container>
+        <nav className="flex items-center justify-between py-6">
+          <Link href="/">
+            <Logo />
           </Link>
-        )}
-      </nav>
+
+          {user ? (
+            <Avatar image={user.photo} username={user.name} menu={menu} />
+          ) : (
+            <Link href="/login" className="flex items-center gap-2">
+              Log in
+              <ArrowRightIcon />
+            </Link>
+          )}
+        </nav>
+      </Container>
     </header>
   )
 }
