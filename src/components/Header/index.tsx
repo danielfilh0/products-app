@@ -20,9 +20,9 @@ export type Header = {
 
 export function Header({ user, menu }: Header) {
   return (
-    <header className="w-full shadow fixed z-10">
+    <header className="w-full border-b border-gray-300 py-4">
       <Container>
-        <nav className="flex items-center justify-between py-6">
+        <nav className="flex items-center justify-between">
           <Link href="/">
             <Logo />
           </Link>
