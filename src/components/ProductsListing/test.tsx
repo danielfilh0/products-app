@@ -22,4 +22,10 @@ describe('<ProductsListing />', () => {
       )
     ).toBeInTheDocument()
   })
+
+  it('should not render the listing if is loading', () => {
+    render(<ProductsListing isLoading={true} />)
+
+    expect(screen.getByText('Carregando produtos...')).toBeInTheDocument()
+  })
 })

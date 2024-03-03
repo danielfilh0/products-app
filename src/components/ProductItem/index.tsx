@@ -1,16 +1,7 @@
+import { TCardProduct } from '@/types/Product'
 import { formatCurrency } from '@/utils/formatCurrency'
 import Image from 'next/image'
 import Link from 'next/link'
-
-export type ProductItemProps = {
-  id: number
-  thumbnail: string
-  title: string
-  description: string
-  price: number
-  discountPercentage: number
-  category: string
-}
 
 export function ProductItem({
   id,
@@ -20,7 +11,7 @@ export function ProductItem({
   price,
   discountPercentage,
   category
-}: ProductItemProps) {
+}: TCardProduct) {
   const calculatedPrice = discountPercentage
     ? price - price * (discountPercentage / 100)
     : price
