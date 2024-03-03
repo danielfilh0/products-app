@@ -1,3 +1,5 @@
+'use client'
+
 import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons'
 import ReactPaginate from 'react-paginate'
 

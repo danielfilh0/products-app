@@ -3,18 +3,18 @@
 exports[`<TextInput /> should render with error 1`] = `
 <div>
   <label
-    class="block text-sm font-medium leading-6 text-red-600"
+    class="block text-sm font-medium leading-6 mb-2 text-red-600"
     for="TextInput"
   >
     TextInput
   </label>
   <div
-    class="relative mt-2 rounded-md shadow-sm"
+    class="relative rounded-md shadow-sm h-full"
   >
     <input
       aria-describedby="email-error"
       aria-invalid="true"
-      class="block w-full rounded-md border-0 py-1.5 ring-1 ring-inset sm:text-sm sm:leading-6 outline-1 disabled:bg-gray-100 disabled:cursor-not-allowed outline-none text-red-400 ring-red-400 placeholder:text-red-400 focus:ring-2 focus:ring-inset focus:ring-red-500 pl-4"
+      class="block w-full rounded-md border-0 py-1.5 pr-4 ring-1 ring-inset sm:text-sm sm:leading-6 outline-1 disabled:bg-gray-100 disabled:cursor-not-allowed outline-none text-red-400 ring-red-400 placeholder:text-red-400 focus:ring-2 focus:ring-inset focus:ring-red-500 pl-4"
       id="TextInput"
       name="TextInput"
       type="text"

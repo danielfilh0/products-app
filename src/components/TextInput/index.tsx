@@ -1,3 +1,5 @@
+'use client'
+
 import { cn } from '@/utils/cn'
 import { ExclamationTriangleIcon } from '@radix-ui/react-icons'
 import { InputHTMLAttributes, useState } from 'react'
@@ -20,6 +22,7 @@ export function TextInput({
   disabled = false,
   onChange,
   error,
+  className,
   ...props
 }: TextInputProps) {
   const [value, setValue] = useState(initialValue)
@@ -37,14 +40,14 @@ export function TextInput({
         <label
           htmlFor={name}
           className={cn(
-            'block text-sm font-medium leading-6 text-gray-900',
+            'block text-sm font-medium leading-6 text-gray-900 mb-2',
             error && 'text-red-600'
           )}
         >
           {label}
         </label>
       )}
-      <div className="relative mt-2 rounded-md shadow-sm">
+      <div className="relative rounded-md shadow-sm h-full">
         {!!icon && !error && (
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
             {icon}
@@ -55,9 +58,10 @@ export function TextInput({
           name={name}
           value={value}
           className={cn(
-            'block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6 outline-1 disabled:bg-gray-100 disabled:cursor-not-allowed',
+            'block w-full rounded-md border-0 py-1.5 pl-10 pr-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6 outline-1 disabled:bg-gray-100 disabled:cursor-not-allowed',
             error &&
-              'outline-none text-red-400 ring-red-400 placeholder:text-red-400 focus:ring-2 focus:ring-inset focus:ring-red-500 pl-4'
+              'outline-none text-red-400 ring-red-400 placeholder:text-red-400 focus:ring-2 focus:ring-inset focus:ring-red-500 pl-4',
+            className
           )}
           disabled={disabled}
           onChange={handleOnChange}

@@ -1,3 +1,5 @@
+'use client'
+
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import Link from 'next/link'
 import Image from 'next/image'
