@@ -7,20 +7,7 @@ import { StarFilledIcon, Pencil2Icon, TrashIcon } from '@radix-ui/react-icons'
 import { formatCurrency } from '@/utils/formatCurrency'
 import { cn } from '@/utils/cn'
 import { useProductController } from './useProductController'
-
-export type ProductProps = {
-  id: number
-  title: string
-  description: string
-  price: number
-  discountPercentage: number
-  rating: number
-  stock: number
-  brand: string
-  category: string
-  thumbnail: string
-  images?: string[]
-}
+import { TProduct } from '@/types/Product'
 
 export function Product({
   id,
@@ -34,7 +21,7 @@ export function Product({
   category,
   thumbnail,
   images
-}: ProductProps) {
+}: TProduct) {
   const { calculatedPrice } = useProductController({
     price,
     discountPercentage

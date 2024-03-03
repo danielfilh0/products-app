@@ -60,5 +60,8 @@ export default {
       discountPercentage: 4.15,
       category: 'laptops'
     }
-  ]
+  ],
+  total: 100,
+  limit: 10,
+  skip: 10
 }

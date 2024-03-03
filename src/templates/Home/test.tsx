@@ -19,7 +19,7 @@ jest.mock('@/components/Pagination', () => ({
 
 describe('<Home />', () => {
   it('should render', () => {
-    render(<Home products={products.products} />)
+    render(<Home products={products} />)
 
     expect(
       screen.getByPlaceholderText('Search for title...')

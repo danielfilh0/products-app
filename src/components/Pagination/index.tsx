@@ -8,15 +8,19 @@ type SelectedItem = {
 }
 
 type PaginationProps = {
+  isActive?: boolean
   total: number
   itemsPerPage: number
   onPageChange?: (currentPage: number) => void
+  page?: number
 }
 
 export function Pagination({
   total,
   itemsPerPage,
-  onPageChange
+  onPageChange,
+  page = 0,
+  isActive = true
 }: PaginationProps) {
   const pageCount = Math.ceil(total / itemsPerPage)
 
@@ -24,7 +28,7 @@ export function Pagination({
     !!onPageChange && onPageChange(selected)
   }
 
-  if (!pageCount) return null
+  if (!pageCount || !isActive) return null
 
   return (
     <ReactPaginate
@@ -42,6 +46,7 @@ export function Pagination({
       pageCount={pageCount}
       renderOnZeroPageCount={null}
       onPageChange={handlePageChange}
+      forcePage={page}
     />
   )
 }
