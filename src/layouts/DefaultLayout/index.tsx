@@ -7,9 +7,9 @@ type ContainerProps = {
 
 export function DefaultLayout({ children }: ContainerProps) {
   return (
-    <div className="flex flex-col w-full h-screen">
+    <div className="flex flex-col w-full min-h-screen">
       <Header />
-      <main className="flex-1 h-full pt-10">{children}</main>
+      <main className="flex-1 h-full">{children}</main>
       <Footer />
     </div>
   )
