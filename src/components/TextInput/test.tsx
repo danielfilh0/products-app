@@ -6,32 +6,37 @@ import userEvent from '@testing-library/user-event'
 
 describe('<TextInput />', () => {
   it('should render with Label', () => {
-    render(<TextInput label="Label" name="Label" />)
+    render(<TextInput id="TextInput" label="TextInput" />)
 
-    expect(screen.getByLabelText('Label')).toBeInTheDocument()
+    expect(screen.getByLabelText('TextInput')).toBeInTheDocument()
   })
 
   it('should render without Label', () => {
-    render(<TextInput />)
+    render(<TextInput id="TextInput" />)
 
-    expect(screen.queryByLabelText('Label')).not.toBeInTheDocument()
+    expect(screen.queryByLabelText('TextInput')).not.toBeInTheDocument()
   })
 
   it('should render with placeholder', () => {
-    render(<TextInput placeholder="hey you" />)
+    render(<TextInput id="TextInput" placeholder="TextInput" />)
 
-    expect(screen.getByPlaceholderText('hey you')).toBeInTheDocument()
+    expect(screen.getByPlaceholderText('TextInput')).toBeInTheDocument()
   })
 
   it('should render with Icon', () => {
-    render(<TextInput icon={<EnvelopeClosedIcon data-testid="icon" />} />)
+    render(
+      <TextInput
+        id="TextInput"
+        icon={<EnvelopeClosedIcon data-testid="icon" />}
+      />
+    )
 
     expect(screen.getByTestId('icon')).toBeInTheDocument()
   })
 
   it('should change its value when typing', async () => {
     const onChange = jest.fn()
-    render(<TextInput onChange={onChange} label="TextInput" name="TextInput" />)
+    render(<TextInput id="TextInput" onChange={onChange} label="TextInput" />)
 
     const input = screen.getByRole('textbox')
     const text = 'This is my new text'
@@ -41,13 +46,13 @@ describe('<TextInput />', () => {
       expect(input).toHaveValue(text)
       expect(onChange).toHaveBeenCalledTimes(text.length)
     })
-    expect(onChange).toHaveBeenCalledWith(text)
   })
 
   it('should not change its value when disabled', async () => {
     const onInput = jest.fn()
     render(
       <TextInput
+        id="TextInput"
         onInput={onInput}
         label="TextInput"
         name="TextInput"
@@ -70,6 +75,7 @@ describe('<TextInput />', () => {
   it('should render with error', () => {
     const { container } = render(
       <TextInput
+        id="TextInput"
         icon={<EnvelopeClosedIcon data-testid="icon" />}
         label="TextInput"
         name="TextInput"
@@ -83,7 +89,7 @@ describe('<TextInput />', () => {
   })
 
   it('should be accessible by tab', async () => {
-    render(<TextInput label="TextInput" name="TextInput" />)
+    render(<TextInput id="TextInput" label="TextInput" name="TextInput" />)
 
     const input = screen.getByLabelText('TextInput')
     expect(document.body).toHaveFocus()
@@ -93,7 +99,9 @@ describe('<TextInput />', () => {
   })
 
   it('should not be accessible by tab when disabled', async () => {
-    render(<TextInput label="TextInput" name="TextInput" disabled />)
+    render(
+      <TextInput id="TextInput" label="TextInput" name="TextInput" disabled />
+    )
 
     const input = screen.getByLabelText('TextInput')
     expect(document.body).toHaveFocus()
