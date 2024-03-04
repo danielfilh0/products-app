@@ -60,7 +60,7 @@ export function Product({
             <ul className="flex gap-2">
               <li>
                 <Link
-                  href={`/product/edit/${id}`}
+                  href={`/product/${id}/edit`}
                   title={`Edit ${title} product`}
                 >
                   <Pencil2Icon className="text-gray-600 w-5 h-5" />
