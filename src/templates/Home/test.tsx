@@ -17,15 +17,18 @@ jest.mock('@/components/Pagination', () => ({
   }
 }))
 
+jest.mock('next/navigation', () => ({
+  ...jest.requireActual('next/navigation'),
+  useParams: () => ({ slug: '1' }),
+  useRouter: () => jest.fn()
+}))
+
 describe('<Home />', () => {
   it('should render', () => {
     render(<Home products={products} />)
 
     expect(
-      screen.getByPlaceholderText('Search for title...')
-    ).toBeInTheDocument()
-    expect(
-      screen.getByPlaceholderText('Search for brand...')
+      screen.getByPlaceholderText('Search for products')
     ).toBeInTheDocument()
     expect(screen.getByRole('form')).toBeInTheDocument()
     expect(screen.getByTestId('Mock ProductsListing')).toBeInTheDocument()
