@@ -4,6 +4,11 @@ import { Product } from '.'
 
 import product from './mock'
 
+jest.mock('next/navigation', () => ({
+  ...jest.requireActual('next/navigation'),
+  useRouter: () => jest.fn()
+}))
+
 describe('<Product />', () => {
   it('should render', () => {
     const { container } = render(<Product {...product} />)
