@@ -1,27 +1,15 @@
 'use client'
 
-import { FormEvent, useState } from 'react'
+import { FormEvent } from 'react'
 import { useRouter } from 'next/navigation'
 
-import { list } from '@/services/products/list'
-import { HomeProps } from '.'
-
-export function useHomeController({ products }: HomeProps) {
+export function useHomeController() {
   const router = useRouter()
-  const [productsState, setProductsState] = useState(products)
-  const [isLoading, setIsLoading] = useState(false)
   const itemsPerPage = 12
 
   async function handlePaginate(page: number) {
-    try {
-      setIsLoading(true)
-      const response = await list(itemsPerPage, page)
-      setProductsState(response)
-    } catch {
-      console.log('erro')
-    } finally {
-      setIsLoading(false)
-    }
+    page = page + 1
+    router.push(`/page/${page}`)
   }
 
   async function handleSearch(event: FormEvent<HTMLFormElement>) {
@@ -37,8 +25,6 @@ export function useHomeController({ products }: HomeProps) {
   }
 
   return {
-    isLoading,
-    productsState,
     handlePaginate,
     itemsPerPage,
     handleSearch

@@ -16,11 +16,11 @@ export type ListWithSearchParams = {
 
 export async function list(
   limit: number = 12,
-  page: number = 0
+  page: number | string = 0
 ): Promise<ListResponse> {
-  const response = await request(
-    `/products?limit=${limit}&skip=${page * limit}`
-  )
+  const skip = Number(page) * limit
+
+  const response = await request(`/products?limit=${limit}&skip=${skip}`)
 
   return response
 }
