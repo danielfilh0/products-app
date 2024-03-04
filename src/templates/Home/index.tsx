@@ -1,10 +1,11 @@
 'use client'
 
+import { MagnifyingGlassIcon } from '@radix-ui/react-icons'
+
 import { Container } from '@/components/Container'
 import { Pagination } from '@/components/Pagination'
 import { ProductsListing } from '@/components/ProductsListing'
 import { TextInput } from '@/components/TextInput'
-import { MagnifyingGlassIcon } from '@radix-ui/react-icons'
 import { useHomeController } from './useHomeController'
 import { TCardProduct } from '@/types/Product'
 
@@ -18,15 +19,7 @@ export type HomeProps = {
 }
 
 export function Home({ products }: HomeProps) {
-  const {
-    productsState,
-    itemsPerPage,
-    handlePaginate,
-    isLoading,
-    handleSearch
-  } = useHomeController({
-    products
-  })
+  const { itemsPerPage, handlePaginate, handleSearch } = useHomeController()
 
   return (
     <>
@@ -53,18 +46,14 @@ export function Home({ products }: HomeProps) {
         </form>
 
         <Container className="pt-10">
-          <ProductsListing
-            products={productsState.products}
-            isLoading={isLoading}
-          />
+          <ProductsListing products={products.products} />
 
           <div className="mt-5 flex justify-center">
             <Pagination
-              isActive={!isLoading}
               itemsPerPage={itemsPerPage}
-              total={productsState.total}
+              total={products.total}
               onPageChange={handlePaginate}
-              page={Math.floor(productsState.skip / itemsPerPage)}
+              page={Math.floor(products.skip / itemsPerPage)}
             />
           </div>
         </Container>
