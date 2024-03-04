@@ -15,7 +15,7 @@ export const formSchema = z.object({
 export type FormSchemaData = z.infer<typeof formSchema>
 
 type UseProductFormControllerProps = {
-  onSubmit?: (data: FormSchemaData) => void
+  onSubmit?: (data: FormSchemaData) => Promise<void>
   titleValue?: string
   descriptionValue?: string
   priceValue?: number
@@ -35,7 +35,8 @@ export function useProductFormController({
     control,
     register,
     handleSubmit: hookFormSubmit,
-    formState: { errors }
+    formState: { errors },
+    reset
   } = useForm<FormSchemaData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -48,7 +49,8 @@ export function useProductFormController({
   })
 
   const handleSubmit = hookFormSubmit(async (data) => {
-    !!onSubmit && onSubmit(data)
+    !!onSubmit && (await onSubmit(data))
+    reset()
   })
 
   return {
