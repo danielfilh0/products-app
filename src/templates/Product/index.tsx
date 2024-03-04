@@ -22,7 +22,7 @@ export function Product({
   thumbnail,
   images
 }: TProduct) {
-  const { calculatedPrice } = useProductController({
+  const { calculatedPrice, handleRemoveProduct } = useProductController({
     price,
     discountPercentage
   })
@@ -67,7 +67,10 @@ export function Product({
                 </Link>
               </li>
               <li>
-                <button title={`Delete ${title} product`}>
+                <button
+                  title={`Delete ${title} product`}
+                  onClick={() => handleRemoveProduct(id)}
+                >
                   <TrashIcon className="text-red-600 w-5 h-5" />
                 </button>
               </li>
