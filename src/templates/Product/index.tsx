@@ -8,6 +8,7 @@ import { formatCurrency } from '@/utils/formatCurrency'
 import { cn } from '@/utils/cn'
 import { useProductController } from './useProductController'
 import { TProduct } from '@/types/Product'
+import { useAuth } from '@/hooks/useAuth'
 
 export function Product({
   id,
@@ -22,6 +23,7 @@ export function Product({
   thumbnail,
   images
 }: TProduct) {
+  const { user } = useAuth()
   const { calculatedPrice, handleRemoveProduct } = useProductController({
     price,
     discountPercentage
@@ -57,24 +59,26 @@ export function Product({
               </li>
             </ul>
 
-            <ul className="flex gap-2">
-              <li>
-                <Link
-                  href={`/product/${id}/edit`}
-                  title={`Edit ${title} product`}
-                >
-                  <Pencil2Icon className="text-gray-600 w-5 h-5" />
-                </Link>
-              </li>
-              <li>
-                <button
-                  title={`Delete ${title} product`}
-                  onClick={() => handleRemoveProduct(id)}
-                >
-                  <TrashIcon className="text-red-600 w-5 h-5" />
-                </button>
-              </li>
-            </ul>
+            {user && (
+              <ul className="flex gap-2">
+                <li>
+                  <Link
+                    href={`/product/${id}/edit`}
+                    title={`Edit ${title} product`}
+                  >
+                    <Pencil2Icon className="text-gray-600 w-5 h-5" />
+                  </Link>
+                </li>
+                <li>
+                  <button
+                    title={`Delete ${title} product`}
+                    onClick={() => handleRemoveProduct(id)}
+                  >
+                    <TrashIcon className="text-red-600 w-5 h-5" />
+                  </button>
+                </li>
+              </ul>
+            )}
           </nav>
 
           <section className="mx-auto mt-10 sm:mt-20">
