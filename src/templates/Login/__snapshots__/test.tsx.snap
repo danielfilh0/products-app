@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Login /> should render the heading 1`] = `
+<div
+  class="flex flex-col justify-center items-center h-full"
+>
+  <img
+    alt="Products App Logo"
+    class="w-auto h-8"
+    data-nimg="1"
+    decoding="async"
+    height="40"
+    loading="lazy"
+    src="/_next/image?url=https%3A%2F%2Ftailwindui.com%2Fimg%2Flogos%2Fmark.svg%3Fcolor%3Dindigo%26shade%3D600&w=96&q=75"
+    srcset="/_next/image?url=https%3A%2F%2Ftailwindui.com%2Fimg%2Flogos%2Fmark.svg%3Fcolor%3Dindigo%26shade%3D600&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Ftailwindui.com%2Fimg%2Flogos%2Fmark.svg%3Fcolor%3Dindigo%26shade%3D600&w=96&q=75 2x"
+    style="color: transparent;"
+    width="47"
+  />
+  <h1
+    class="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900 mt-4 mb-10"
+  >
+    Login to your account
+  </h1>
+  <div
+    class="bg-white px-6 py-12 shadow-md sm:rounded-lg sm:px-12 sm:w-full sm:max-w-[480px]"
+  >
+    <form
+      class="space-y-6"
+      role="form"
+    >
+      <div>
+        <label
+          class="block text-sm font-medium leading-6 text-gray-900 mb-2"
+          for="username"
+        >
+          Username
+        </label>
+        <div
+          class="relative rounded-md shadow-sm h-full"
+        >
+          <input
+            class="block w-full rounded-md border-0 pl-4 py-1.5 data-[icon=true]:pl-10 pr-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6 outline-1 disabled:bg-gray-100 disabled:cursor-not-allowed"
+            data-icon="false"
+            id="username"
+            name="username"
+            type="text"
+          />
+        </div>
+      </div>
+      <div>
+        <label
+          class="block text-sm font-medium leading-6 text-gray-900 mb-2"
+          for="password"
+        >
+          Password
+        </label>
+        <div
+          class="relative rounded-md shadow-sm h-full"
+        >
+          <input
+            class="block w-full rounded-md border-0 pl-4 py-1.5 data-[icon=true]:pl-10 pr-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6 outline-1 disabled:bg-gray-100 disabled:cursor-not-allowed"
+            data-icon="false"
+            id="password"
+            name="password"
+            type="password"
+          />
+        </div>
+      </div>
+      <button
+        class="w-full rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-gray-300 disabled:pointer-events-none"
+        type="submit"
+      >
+        Login
+      </button>
+    </form>
+  </div>
+</div>
+`;
