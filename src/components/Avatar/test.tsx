@@ -1,8 +1,16 @@
-import { renderWithTheme as render } from '@/utils/tests/helpers'
+import React from 'react'
 import userEvent from '@testing-library/user-event'
-
-import { Avatar } from '.'
 import { screen, waitFor } from '@testing-library/react'
+
+import { renderWithTheme as render } from '@/utils/tests/helpers'
+import { Avatar } from '.'
+
+jest.mock('@/contexts/AuthContext', () => ({
+  __esModule: true,
+  AuthProvider: function Mock({ children }: { children: React.ReactNode }) {
+    return <div data-testid="Mock AuthProvider">{children}</div>
+  }
+}))
 
 describe('<Avatar />', () => {
   it('should render Avatar only', () => {

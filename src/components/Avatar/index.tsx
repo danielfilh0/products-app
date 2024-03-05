@@ -28,7 +28,7 @@ export function Avatar({ image, username, menu }: AvatarProps) {
     ) : (
       <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gray-300">
         <span className="text-sm font-medium leading-none text-white uppercase">
-          {username.charAt(0) + username.charAt(1)}
+          {username?.charAt(0) + username?.charAt(1)}
         </span>
       </span>
     )

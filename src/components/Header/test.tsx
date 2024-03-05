@@ -27,7 +27,7 @@ describe('<Header />', () => {
 
 describe('<Header />', () => {
   it('should render with logged user', () => {
-    render(<Header user={{ name: 'John Doe' }} />)
+    render(<Header user={{ name: 'John Doe', photo: 'imageSrc' }} />)
 
     expect(screen.getByTestId('Mock Logo')).toBeInTheDocument()
     expect(screen.getByTestId('Mock Avatar')).toBeInTheDocument()

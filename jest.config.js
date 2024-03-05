@@ -6,6 +6,7 @@ module.exports = {
     'src/**/*.ts(x)?',
     '!src/styles/**',
     '!src/utils/**',
+    '!src/contexts/**', // should be tested in e2e
     '!src/services/**', // should be tested in e2e
     '!src/app/**', // should be tested in e2e
     '!src/lib/registry.tsx',

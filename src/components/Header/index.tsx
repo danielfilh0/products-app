@@ -27,7 +27,7 @@ export function Header({ user, menu }: Header) {
             <Logo />
           </Link>
 
-          {user ? (
+          {user?.name && user?.photo ? (
             <Avatar image={user.photo} username={user.name} menu={menu} />
           ) : (
             <Link href="/login" className="flex items-center gap-2">
